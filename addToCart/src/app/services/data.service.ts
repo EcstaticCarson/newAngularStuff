@@ -18,7 +18,7 @@ export class DataService {
     },
     {
       id: '2',
-      pName: 'The Master Sowrd',
+      pName: 'The Master Sword',
       pNameURL: 'Zelda',
       pDesc: 'A Powerful Sword Indeed!',
       additionalInfo: 'Used to Kill Ganon',
@@ -43,11 +43,12 @@ export class DataService {
   }
 
   addToCart(cartItem: Iproduct) {
-    if (!this.itemsInCart.includes(cartItem)) {
+    if (this.itemsInCart.includes(cartItem)) {
+      cartItem.qty++;
+    } else {
       cartItem.qty++;
       this.itemsInCart.push(cartItem);
       console.log(this.itemsInCart);
-    } else {
       // We are going to search for the item in your cart
       // Then ad one to quantity.
     }
